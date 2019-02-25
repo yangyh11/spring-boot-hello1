@@ -10,4 +10,6 @@ import com.example.test.entity.Demo;
 public interface DemoService {
 
     void save(Demo demo);
+
+    Demo getDemoById(long id);
 }

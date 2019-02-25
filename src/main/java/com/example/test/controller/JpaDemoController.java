@@ -27,4 +27,10 @@ public class JpaDemoController {
         return "数据保存成功！";
     }
 
+    @RequestMapping("/getDemoById")
+    public Demo getDemoById(long id) {
+        Demo demo = demoService.getDemoById(id);
+        return demo;
+    }
+
 }
