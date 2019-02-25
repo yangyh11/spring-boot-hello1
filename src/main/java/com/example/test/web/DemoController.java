@@ -30,4 +30,9 @@ public class DemoController {
         demo.setName("王五");
         return JSONObject.toJSON(demo);
     }
+
+    @RequestMapping("/zeroException")
+    public int zeroException(){
+        return 100/0;
+    }
 }
