@@ -1,12 +1,18 @@
-package com.example.test.bean;
+package com.example.test.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * @description: 测试实体类
  * @author: yangyh
  * @create: 2019-02-25 13:21
  **/
+@Entity
 public class Demo {
 
+    @Id@GeneratedValue
     private long id;//主键
 
     private String name;//测试名称

@@ -1,7 +1,7 @@
-package com.example.test.web;
+package com.example.test.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.test.bean.Demo;
+import com.example.test.entity.Demo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
