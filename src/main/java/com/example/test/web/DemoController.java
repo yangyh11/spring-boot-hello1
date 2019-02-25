@@ -1,5 +1,6 @@
 package com.example.test.web;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.test.bean.Demo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,5 +21,13 @@ public class DemoController {
         demo.setId(12);
         demo.setName("张三");
         return demo;
+    }
+
+    @RequestMapping("/getFastJson")
+    public Object getFastJson(){
+        Demo demo = new Demo();
+        demo.setId(13);
+        demo.setName("王五");
+        return JSONObject.toJSON(demo);
     }
 }
