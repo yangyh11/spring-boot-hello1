@@ -1,6 +1,6 @@
-package com.example.test.dao;
+package com.example.demo.dao;
 
-import com.example.test.entity.Demo;
+import com.example.demo.entity.Demo;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

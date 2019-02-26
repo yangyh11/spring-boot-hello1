@@ -1,6 +1,6 @@
-package com.example.test.service;
+package com.example.demo.service;
 
-import com.example.test.entity.Demo;
+import com.example.demo.entity.Demo;
 
 /**
  * @description:

@@ -1,6 +1,6 @@
-package com.example.test.dao;
+package com.example.demo.dao;
 
-import com.example.test.entity.Demo;
+import com.example.demo.entity.Demo;
 import org.springframework.data.repository.CrudRepository;
 
 /**

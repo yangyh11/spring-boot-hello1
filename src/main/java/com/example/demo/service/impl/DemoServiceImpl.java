@@ -1,9 +1,9 @@
-package com.example.test.service.impl;
+package com.example.demo.service.impl;
 
-import com.example.test.dao.DemoDao;
-import com.example.test.dao.DemoRepository;
-import com.example.test.entity.Demo;
-import com.example.test.service.DemoService;
+import com.example.demo.dao.DemoDao;
+import com.example.demo.dao.DemoRepository;
+import com.example.demo.entity.Demo;
+import com.example.demo.service.DemoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
