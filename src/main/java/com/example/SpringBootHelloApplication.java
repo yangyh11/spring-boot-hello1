@@ -9,10 +9,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  **/
 @SpringBootApplication
 @ServletComponentScan
-public class SpringBootHello1Application {
+public class SpringBootHelloApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootHello1Application.class, args);
+        SpringApplication.run(SpringBootHelloApplication.class, args);
     }
 
 }
