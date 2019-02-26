@@ -43,7 +43,7 @@ import javax.servlet.annotation.WebServlet;
  *
  **/
 
-
+/**访问url 127.0.0.1:8080/druid/index.html**/
 
 @WebServlet(urlPatterns = "/druid/*",
         initParams = {
