@@ -32,12 +32,14 @@ public class MyWebAppConfigurer extends WebMvcConfigurationSupport {
         super.addResourceHandlers(registry);
     }
 
+    /**强调一点：只有经过DispatcherServlet 的请求，才会走拦截器链，我们自定义的Servlet 请求是不会被拦截的
+     * 比如我们自定义的Servlet地址http://localhost:8080/myServlet1 是不会被拦截器拦截的
+    ***/
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        //多个拦截器组成一个拦截器链 执行顺序212
+        //多个拦截器组成一个拦截器链 执行顺序122121
         // addPathPatterns 用于添加拦截规则
         // excludePathPatterns 用于排除拦截
-        registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
         registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/**");
         registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
         super.addInterceptors(registry);
