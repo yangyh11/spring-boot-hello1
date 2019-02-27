@@ -1,6 +1,9 @@
-package com.example.sample.config;
+package com.example.config;
 
+import com.example.base.interceptor.MyInterceptor1;
+import com.example.base.interceptor.MyInterceptor2;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
@@ -27,5 +30,16 @@ public class MyWebAppConfigurer extends WebMvcConfigurationSupport {
                 .addResourceLocations("classpath:/myres/")
                 .addResourceLocations("file:D:/test/");
         super.addResourceHandlers(registry);
+    }
+
+    @Override
+    protected void addInterceptors(InterceptorRegistry registry) {
+        //多个拦截器组成一个拦截器链 执行顺序212
+        // addPathPatterns 用于添加拦截规则
+        // excludePathPatterns 用于排除拦截
+        registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
+        registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/**");
+        registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
+        super.addInterceptors(registry);
     }
 }
