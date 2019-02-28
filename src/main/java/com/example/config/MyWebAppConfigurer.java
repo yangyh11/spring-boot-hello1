@@ -2,10 +2,17 @@ package com.example.config;
 
 import com.example.base.interceptor.MyInterceptor1;
 import com.example.base.interceptor.MyInterceptor2;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+
+import java.nio.charset.Charset;
+import java.util.List;
 
 /**
  * @description: 静态资源映射 未生效，配置文件修改生效。未生效原因是没有放到启动类下面，继承WebMvcConfigurationSupport重写
@@ -43,5 +50,25 @@ public class MyWebAppConfigurer extends WebMvcConfigurationSupport {
         registry.addInterceptor(new MyInterceptor1()).addPathPatterns("/**");
         registry.addInterceptor(new MyInterceptor2()).addPathPatterns("/**");
         super.addInterceptors(registry);
+    }
+
+    @Bean
+    public HttpMessageConverter<String> responseBodyConverter() {
+        StringHttpMessageConverter converter = new StringHttpMessageConverter(
+                Charset.forName("UTF-8"));
+        return converter;
+    }
+
+    @Override
+    public void configureMessageConverters(
+            List<HttpMessageConverter<?>> converters) {
+        super.configureMessageConverters(converters);
+        converters.add(responseBodyConverter());
+    }
+
+    @Override
+    public void configureContentNegotiation(
+            ContentNegotiationConfigurer configurer) {
+        configurer.favorPathExtension(false);
     }
 }
