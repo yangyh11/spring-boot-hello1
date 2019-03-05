@@ -17,8 +17,20 @@ public class HelloServiceTest {
 
     @Resource
     private HelloService helloService;
+
+    @Resource
+    private IpService ipService;
     @Test
     public void testGetName() {
         Assert.assertEquals("hello", helloService.getName());
     }
+
+
+    @Test
+    public void testIpService() {
+        ipService.updteLocatio();
+    }
+
+
+
 }
