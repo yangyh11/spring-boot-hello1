@@ -18,7 +18,7 @@ public class HttpUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(HttpUtil.class);
 
-    public static String httpPost(String url, String charsetName){
+    public static String httpPost(String url, String charsetName) throws IOException {
 
         HttpURLConnection connection = null;
         String line = "";
@@ -48,9 +48,9 @@ public class HttpUtil {
                 httpResults = httpResults + line.toString();
             }
             return httpResults;
-        } catch (IOException e) {
-            logger.error("网络请求异常｛｝", url);
-            return null;
+        }  catch (IOException e) {
+            logger.warn("网络请求发生异常:" + url);
+            throw new IOException();
         }
 
     }
