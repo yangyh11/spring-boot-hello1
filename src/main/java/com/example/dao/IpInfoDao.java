@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package com.example.dao;
 
-import com.example.demo.entity.IpInfo;
+import com.example.entity.IpInfo;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -24,7 +24,7 @@ public class IpInfoDao {
      * 通过id获取Demo对象
      */
     public List<IpInfo> getIpInfo(){
-        String sql = "select * from ip_info order by id limit 3400,1200";
+        String sql = "select * from ip_info order by id";
         RowMapper<IpInfo> rowMapper = new BeanPropertyRowMapper<>(IpInfo.class);
         List<IpInfo> ipList = jdbcTemplate.query(sql, rowMapper);
         return ipList;

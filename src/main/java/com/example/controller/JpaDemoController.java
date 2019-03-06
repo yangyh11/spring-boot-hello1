@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.example.controller;
 
-import com.example.demo.entity.Demo;
-import com.example.demo.service.DemoService;
+import com.example.entity.Demo;
+import com.example.service.DemoService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

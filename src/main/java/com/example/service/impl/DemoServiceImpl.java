@@ -1,11 +1,11 @@
-package com.example.demo.service.impl;
+package com.example.service.impl;
 
 import com.example.cache.CacheId;
 import com.example.cache.RedisCache;
-import com.example.demo.dao.DemoDao;
-import com.example.demo.dao.DemoRepository;
-import com.example.demo.entity.Demo;
-import com.example.demo.service.DemoService;
+import com.example.dao.DemoDao;
+import com.example.dao.DemoRepository;
+import com.example.entity.Demo;
+import com.example.service.DemoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

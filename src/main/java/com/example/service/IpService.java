@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.service;
 
 /**
  * @description:
@@ -8,5 +8,7 @@ package com.example.demo.service;
 public interface IpService {
 
     void updteLocatio();
+
+    void updteLocatioByExcel();
 
 }

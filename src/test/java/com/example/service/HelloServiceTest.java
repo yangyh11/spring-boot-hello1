@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.service;
 
 import com.example.SpringBootHelloApplication;
 import org.junit.Assert;
@@ -28,7 +28,7 @@ public class HelloServiceTest {
 
     @Test
     public void testIpService() {
-        ipService.updteLocatio();
+        ipService.updteLocatioByExcel();
     }
 
 
