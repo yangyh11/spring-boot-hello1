@@ -2,7 +2,6 @@ package com.example.base.util.excel;
 
 import com.alibaba.excel.EasyExcelFactory;
 import com.alibaba.excel.ExcelWriter;
-import com.alibaba.excel.metadata.BaseRowModel;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
 import org.apache.commons.lang3.StringUtils;
@@ -72,7 +71,7 @@ public class ExcelUtil {
             inputStream = new FileInputStream(file);
 
             ExcelListener excelListener = new ExcelListener();
-            EasyExcelFactory.readBySax(inputStream, new Sheet(2, 1), excelListener);
+            EasyExcelFactory.readBySax(inputStream, new Sheet(1, 1), excelListener);
             List<List<String>> dataList =  excelListener.getData();
             return dataList;
 

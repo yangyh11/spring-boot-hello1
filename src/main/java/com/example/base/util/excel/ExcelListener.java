@@ -2,7 +2,6 @@ package com.example.base.util.excel;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import com.alibaba.excel.metadata.BaseRowModel;
 
 import java.util.ArrayList;
 import java.util.List;
