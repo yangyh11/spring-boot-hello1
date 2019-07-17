@@ -58,20 +58,21 @@ public class IpServiceImpl implements IpService {
     public void updteLocatioByExcel() {
 
         //读取excel文件
-        List<List<String>> dataList = ExcelUtil.saxReadListStringV2007("E:\\登陆客户1.xlsx");
-
+        List<List<String>> dataList = ExcelUtil.saxReadListStringV2007("E:\\loginlog_201811.xlsx");
+        int k = 1;
         //调用百度api获取ip所属地址
         for (List ipInfoList : dataList) {
-            String location = this.getLocation((String) ipInfoList.get(2));
-            if (ipInfoList.size() == 4) {
-                ipInfoList.set(3, location);
-            } else {
+            String location = this.getLocation((String) ipInfoList.get(0));
+//            if (ipInfoList.size() == 4) {
+//                ipInfoList.set(3, location);
+//            } else {
                 ipInfoList.add(location);
-            }
+            System.out.println("-----第" + k++ + "条数据");
+//            }
         }
 
         //写excel
-        ExcelUtil.writeWithoutHead(dataList, null, null, "E:\\登陆客户1.xlsx");
+        ExcelUtil.writeWithoutHead(dataList, null, null, "E:\\loginlog_201811.xlsx");
     }
 
 
@@ -84,7 +85,7 @@ public class IpServiceImpl implements IpService {
         try {
             byte[] content = HttpClientUtil.httpGet(url, "gbk", null);
             String contentStr = new String(content, "gbk");
-            logger.info("服务响应报文{}", contentStr);
+            logger.info("参数[{}]，服务响应报文{}", ip, contentStr);
             if (StringUtils.isBlank(contentStr)) {
                 Map<String, String> busin_param = new HashMap<>();
                 logger.info("没有返回任何数据");
@@ -98,11 +99,11 @@ public class IpServiceImpl implements IpService {
             return location;
 
         } catch (IOException e) {
-            logger.error("ip地址服务接口调用失败", e);
-            return null;
+            logger.error("[{}]ip地址服务接口调用失败", ip,e);
+            return "查询失败";
         } catch (Exception e) {
-            logger.error("ip所属地址获取失败", e);
-            return null;
+            logger.error("[{}]ip所属地址获取失败", ip, e);
+            return "查询失败";
         }
     }
 

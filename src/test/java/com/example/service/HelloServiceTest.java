@@ -28,8 +28,10 @@ public class HelloServiceTest {
 
     @Test
     public void testIpService() {
-        ipService.updteLocatioByExcel();
+//        ipService.updteLocatioByExcel();
+        ipService.updteLocatio();
     }
+
 
 
 

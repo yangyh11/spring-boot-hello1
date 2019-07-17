@@ -24,7 +24,7 @@ public class IpInfoDao {
      * 通过id获取Demo对象
      */
     public List<IpInfo> getIpInfo(){
-        String sql = "select * from ip_info order by id";
+        String sql = "select id,ip from ip_info order by id limit 135580,10000 ";
         RowMapper<IpInfo> rowMapper = new BeanPropertyRowMapper<>(IpInfo.class);
         List<IpInfo> ipList = jdbcTemplate.query(sql, rowMapper);
         return ipList;
